@@ -4,11 +4,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
-public class googlePageTitleTest {
-
-
-    @Test
-    public void captureTitle(){
+public class pageTitleTest {
+    @Test(priority = 1)
+    public void captureTitle() {
         ChromeOptions co = new ChromeOptions();
         co.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(co);
@@ -16,9 +14,8 @@ public class googlePageTitleTest {
 
         driver.get("http://www.google.com/");
         String googleTitle = driver.getTitle();
-        System.out.println("The Page Title of Amazon is : " +  googleTitle);
+        System.out.println("The Page Title of Google is : " + googleTitle);
         driver.manage().window().maximize();
         driver.quit();
     }
-    
 }
