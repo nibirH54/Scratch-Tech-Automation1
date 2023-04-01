@@ -7,16 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.Callable;
-
 public class SearchGoogleTest {
+
+    WebDriver driver = new ChromeDriver();
 
     @Test(priority = 3)
     public void testSearch1(){
-        ChromeOptions co = new ChromeOptions();
-        co.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(co);
-        WebDriverManager.chromedriver().setup();
 
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
@@ -28,11 +24,6 @@ public class SearchGoogleTest {
     }
     @Test(priority = 2)
     public void testSearch2(){
-        ChromeOptions co = new ChromeOptions();
-        co.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(co);
-        WebDriverManager.chromedriver().setup();
-
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
         WebElement x = driver.findElement(By.xpath("//input[@name='q']"));
@@ -44,11 +35,6 @@ public class SearchGoogleTest {
 
     @Test(priority = 1)
     public void testSearch3(){
-        ChromeOptions co = new ChromeOptions();
-        co.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(co);
-        WebDriverManager.chromedriver().setup();
-
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
         WebElement y = driver.findElement(By.xpath("//input[@class='gLFyf']"));
