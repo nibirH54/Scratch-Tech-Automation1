@@ -1,46 +1,52 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class SearchGoogleTest {
-
     WebDriver driver = new ChromeDriver();
 
-    @Test(priority = 3)
-    public void testSearch1(){
-
-        driver.get("https://www.google.com/");
+    @BeforeMethod
+    public void openBrowser(){
+        driver.get("http://www.google.com");
         driver.manage().window().maximize();
+    }
+
+    @Test
+    public void testSearch1(){
         WebElement t = driver.findElement(By.name("q"));
         t.sendKeys("CNBC Office Address");
         t.sendKeys(Keys.ENTER);
-        driver.navigate().back();
-        driver.quit();
+        driver.close();
+
     }
-    @Test(priority = 2)
+    @Test
     public void testSearch2(){
-        driver.get("https://www.google.com/");
+        driver.get("http://www.google.com");
         driver.manage().window().maximize();
         WebElement x = driver.findElement(By.xpath("//input[@name='q']"));
         x.sendKeys("Where is Apple Headquarter located?");
         x.sendKeys(Keys.ENTER);
-        driver.navigate().back();
-        driver.quit();
+
+
     }
 
-    @Test(priority = 1)
+    @Test
     public void testSearch3(){
-        driver.get("https://www.google.com/");
+        driver.get("http://www.google.com");
         driver.manage().window().maximize();
         WebElement y = driver.findElement(By.xpath("//input[@class='gLFyf']"));
         y.sendKeys("How old is Elon Mask?");
         y.sendKeys(Keys.ENTER);
-        driver.navigate().back();
+
+    }
+
+    @AfterMethod
+    public void closeBrowser(){
         driver.quit();
     }
 
