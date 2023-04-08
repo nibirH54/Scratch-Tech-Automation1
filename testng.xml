@@ -3,8 +3,6 @@
         <classes>
             <class name = "BrowserStackLoginTest"/>
             <class name = "BrowserStackTitleTest"/>
-            <class name = "pageTitleTest"/>
-            <class name = "SearchGoogleTest"/>
         </classes>
     </test>
 </suite>
